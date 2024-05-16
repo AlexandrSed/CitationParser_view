@@ -1,0 +1,90 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.head {
+  font-size: x-large;
+}
+
+.requestLine {
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+select {
+  width: 20rem;
+  margin-right: 1rem;
+}
+
+input {
+  width: 100%;
+}
+
+button:active, button:focus {
+  outline: none !important;
+}
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+select, input {
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: #999;
+  font-size: 1rem;
+  border-style: solid;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.addButton {
+  margin-bottom: 1rem;
+  background-color: #c0c0c0;
+  color: white;
+  transition: background-color 0.3s ease 0s;
+}
+
+.searchButton {
+  background-color: #0094ff;
+  color: white;
+  transition: background-color 0.3s ease 0s;
+}
+
+.addButton:hover {
+  background-color: #959595;
+ outline: none;
+
+  /* border-color: #959595; */
+
+}
+
+.addButton:active , .searchButton:active{
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  transition: .05s
+}
+
+.searchButton:hover {
+  background-color: #007dd6;
+  /* border-color: #007dd6; */
+}
+
+.head2 {
+  font-size: large;
+}
+
+.publicationCard {
+  padding: 1rem;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25);
+  margin: 1rem 0;
+}
