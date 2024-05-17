@@ -20,7 +20,7 @@ function Search() {
       onChangeAction={(selectedCriteria: {value: string, label: string}) => {
 
         const arr = criteria.slice();
-        arr[Cr.id] = {id: Cr.id, value: selectedCriteria.value, label: selectedCriteria.label}
+        arr[arr.indexOf(Cr)] = {id: Cr.id, value: selectedCriteria.value, label: selectedCriteria.label}
         setCriteria(arr)
 
       } }/>))}
