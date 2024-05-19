@@ -1,25 +1,29 @@
 import '../App.css'
 import DeleteIcon from '../icons/DeleteIcon'
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { RequestLine } from '../types'
+import { ChangeEventHandler } from 'react';
 
 const options = [
 
-  { value: "Title"          , label: "Заглавие" },
-  { value: "Author"         , label: "Автор" },
-  { value: "Year"           , label: "Год выпуска" },
-  { value: "Type"           , label: "Тип публикации" },
-  { value: "TitleOfSource"  , label: "Название источника" },
-  { value: "DOI"            , label: "DOI" },
-  { value: "City"           , label: "Город" },
-  { value: "University"     , label: "Университет" }
+  { value: "title"          , label: "Заглавие" },
+  { value: "author"         , label: "Автор" },
+  { value: "year"           , label: "Год выпуска" },
+  { value: "type"           , label: "Тип публикации" },
+  { value: "titleOfSource"  , label: "Название источника" },
+  { value: "doi"            , label: "DOI" },
+  { value: "city"           , label: "Город" },
+  { value: "university"     , label: "Университет" }
 ];
 
 type Props = {
   criteria: RequestLine,
-  deleteAction: any,
-  onChangeSelect: any,
-  onChangeLine: any
+  deleteAction: () => void,
+  onChangeSelect: (selectedCriteria: SingleValue<{
+      value: string;
+      label: string;
+    }>) => void,
+  onChangeLine: ChangeEventHandler<HTMLInputElement>
 
 }
 
@@ -31,7 +35,7 @@ function SearchLine({criteria, deleteAction, onChangeSelect, onChangeLine}: Prop
         <Select
           className='select'
           value={{value: criteria.criteriaValue, label: criteria.criteriaLabel}}
-          onChange={onChangeSelect}
+          onChange={ e => onChangeSelect(e)}
           options={options}>
         </Select>
 
