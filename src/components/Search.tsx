@@ -1,40 +1,64 @@
 import { useState } from 'react';
 import '../App.css'
 import SearchLine from './SearchLine'
-import { Criteria } from '../types';
+import { RequestLine } from '../types';
 
+type Props = {
+  searchAction: any
+}
 
-function Search() {
+function Search({searchAction} : Props) {
 
-  const [criteria, setCriteria] = useState<Criteria[]>([{id: 0, value: "Title", label: "Заглавие"},
-   {id: 1, value: "Title", label: "Заглавие"}]);
+  const [criteria, setCriteria] = useState<RequestLine[]>([{id: 0, criteriaValue: "Title", criteriaLabel: "Заглавие", value: ""},
+   {id: 1, criteriaValue: "Title", criteriaLabel: "Заглавие", value: ""}]);
 
   return (
     <>
-      <p className='head'>Поиск научных публикаций кафедры ПОАС</p>
+      <p className = 'head'>Поиск научных публикаций кафедры ПОАС</p>
 
       {criteria.map((Cr) => (<SearchLine criteria={Cr} 
       
-      deleteAction={()=>setCriteria(criteria.filter(c => c.id !== Cr.id))}
+      deleteAction = {() => setCriteria(criteria.filter(c => c.id !== Cr.id))}
 
-      onChangeAction={(selectedCriteria: {value: string, label: string}) => {
+      onChangeSelect = {(selectedCriteria: {value: string, label: string}) => {
 
         const arr = criteria.slice();
-        arr[arr.indexOf(Cr)] = {id: Cr.id, value: selectedCriteria.value, label: selectedCriteria.label}
+        arr[arr.indexOf(Cr)] = {
+          id: Cr.id, 
+          criteriaValue: selectedCriteria.value, 
+          criteriaLabel: selectedCriteria.label, 
+          value: Cr.value
+        }
         setCriteria(arr)
+      }}
 
-      } }/>))}
+      onChangeLine = {(event) => {
+        const arr = criteria.slice();
+        arr[arr.indexOf(Cr)] = {
+          id: Cr.id, 
+          criteriaValue: Cr.criteriaValue, 
+          criteriaLabel: Cr.criteriaLabel, 
+          value: event.target.value
+        }
+        setCriteria(arr)
+      }}
+      />))}
 
-      <div className='buttons'>
-        <button className='addButton' onClick={()=>{ 
+      <div className = 'buttons'>
+        <button className = 'addButton' onClick={() => { 
             
           if(criteria.length != 8)
 
-            setCriteria(criteria.concat({id: criteria[criteria.length-1].id + 1, value: "Title", label: "Заглавие"}))
+            setCriteria(criteria.concat({
+              id: criteria[criteria.length - 1].id + 1,
+              criteriaValue: "Title",
+              criteriaLabel: "Заглавие",
+              value: ""
+            }))
 
           }}>Добавить строку</button>
 
-        <button className='searchButton'>Найти</button>
+        <button className='searchButton' onClick={searchAction}>Найти</button>
       </div>
     </>
   )

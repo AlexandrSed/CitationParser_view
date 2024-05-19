@@ -36,13 +36,14 @@ button::-moz-focus-inner {
   border: 0 !important;
 }
 
-select, input {
+input {
   padding: 5px;
-  border-width: 2px;
-  border-radius: 10px;
+  border-width: 1px;
+  border-radius: 7px;
   border-color: #999;
   font-size: 1rem;
   border-style: solid;
+  padding: 0.5rem;
 }
 
 .buttons {

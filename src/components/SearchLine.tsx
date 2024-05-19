@@ -1,7 +1,7 @@
 import '../App.css'
 import DeleteIcon from '../icons/DeleteIcon'
 import Select from "react-select";
-import { Criteria } from '../types'
+import { RequestLine } from '../types'
 
 const options = [
 
@@ -16,23 +16,27 @@ const options = [
 ];
 
 type Props = {
-  criteria: Criteria,
+  criteria: RequestLine,
   deleteAction: any,
-  onChangeAction: any
+  onChangeSelect: any,
+  onChangeLine: any
 
 }
 
-function SearchLine({criteria, deleteAction, onChangeAction}: Props) {
+function SearchLine({criteria, deleteAction, onChangeSelect, onChangeLine}: Props) {
 
   return (
       <div className='requestLine'>
+
         <Select
           className='select'
-          value={{value: criteria.value, label: criteria.label}}
-          onChange={onChangeAction}
+          value={{value: criteria.criteriaValue, label: criteria.criteriaLabel}}
+          onChange={onChangeSelect}
           options={options}>
         </Select>
-        <input type="text" placeholder='Введите значение'/>
+
+        <input type="text" placeholder='Введите значение' onChange={onChangeLine} value={criteria.value}/>
+        
         {criteria.id >= 2 ?
         <button className='DeleteBtn' onClick={deleteAction}><DeleteIcon/></button>
         :<></>}

@@ -1,5 +1,6 @@
-export type Criteria = {
+export type RequestLine = {
     id: number,
-    value: string,
-    label: string
+    criteriaValue: string,
+    criteriaLabel: string,
+    value: string
 }
