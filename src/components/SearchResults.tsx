@@ -12,7 +12,11 @@ type Props = {
 
 function SearchResults({publications, changePageAction} : Props) {
 
-  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [pageNumber, setPageNumber] = useState<number>(() => {
+    const page = localStorage.getItem("page");
+
+    return page == null ? 1 : parseInt(page);
+  });
 
   return (
     <>
@@ -30,14 +34,18 @@ function SearchResults({publications, changePageAction} : Props) {
         <button className='previous' onClick={() => {
           if(pageNumber != 1) {
             changePageAction((pageNumber - 2)*10)
-            setPageNumber(pageNumber - 1)
+            const pageCopy = pageNumber - 1
+            localStorage.setItem("page", pageCopy.toString())
+            setPageNumber(pageCopy)
           }
         }}><Previous/></button>
         <b>{pageNumber}</b>
         <button className='next' onClick={() => {
           if(publications != undefined && publications.length == 10) {
             changePageAction((pageNumber)*10)
-            setPageNumber(pageNumber + 1)
+            const pageCopy = pageNumber + 1
+            localStorage.setItem("page", pageCopy.toString())
+            setPageNumber(pageCopy)
           }
         }}><Next/></button>
       </div>

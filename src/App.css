@@ -1,7 +1,13 @@
 #root {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
+  height: 100vh;
 }
 
 * {
@@ -112,5 +118,29 @@ svg:hover {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 3rem 0;
+  padding: 3rem 0 5rem 0;
+}
+
+.header {
+  background-color: #0094ff;
+  color: white;
+  display: flex;
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+  justify-content: center;
+  font-size: large;
+  position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+  .requestLine {
+    flex-direction: column;
+  }
+
+  .select {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }

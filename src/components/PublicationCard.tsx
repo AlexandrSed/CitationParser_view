@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../App.css'
 import { Publication } from '../types'
 
@@ -5,14 +6,16 @@ type Props = {
   publication: Publication
 }
 
-function PublicationCadr({publication} : Props) {
+function PublicationCard({publication} : Props) {
 
   return (
-    <div className='publicationCard'>
-        <p>Название статьи: {publication.title}</p>
-        <p>Авторы статьи: {publication.idAuthors.map(a => a.name + ", ")}</p>
-    </div>
+    <Link to={"/publication/" + publication.id} state={publication}>
+      <div className='publicationCard'>
+          <p>Название статьи: {publication.title}</p>
+          <p>Авторы статьи: {publication.idAuthors.map(a => a.name + ", ")}</p>
+      </div>
+    </Link>
   )
 }
 
-export default PublicationCadr
+export default PublicationCard
