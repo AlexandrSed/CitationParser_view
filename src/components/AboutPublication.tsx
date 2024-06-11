@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import '../App.css'
 import { Publication } from '../types'
+import FileIcon from '../icons/FileIcon'
 
 function AboutPublication() {
 
@@ -50,6 +51,9 @@ function AboutPublication() {
         { publication.rightHolder == null ? <></>: <p><b>Правообладатель:         </b> {publication.rightHolder}</p>}
         { publication.titleOfSource == null ? <></>: <p><b>Название источника:         </b> {publication.titleOfSource}</p>}
         { publication.volumeNumber == null ? <></>: <p><b>Номер тома:         </b> {publication.volumeNumber}</p>}
+
+        <div className='download'><a href=""><FileIcon/> Экспертное заключение.pdf</a></div>
+        <div className='download'><a href=""><FileIcon/> Экспортное заключение.pdf</a></div>
 
         <Link to={"/"}><button className='addButton'>Вернуться к поиску</button></Link>
       </div>

@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutPublication from './components/AboutPublication';
 import SearchSystem from './components/SearchSystem';
+import AdminPanel from './components/AdminPanel';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
         Поиск научных публикаций ВолгГТУ
       </div>
       <Routes>
+            <Route path='/admin' element={<AdminPanel/>}/>
             <Route path="/" element={<SearchSystem/>} />
             <Route path="/publication/:id" element={<AboutPublication/>} />
       </Routes>

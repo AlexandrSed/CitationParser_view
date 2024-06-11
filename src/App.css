@@ -133,6 +133,22 @@ svg:hover {
   position: absolute;
 }
 
+.download {
+  margin: 2rem 0;
+}
+
+.filesUploaded {
+  display: flex;
+}
+
+.fileName {
+  margin: auto 2rem;
+}
+
+.lucide-file-text {
+  margin: auto 0;
+}
+
 @media screen and (max-width: 768px) {
   .requestLine {
     flex-direction: column;
