@@ -1,7 +1,7 @@
 # CitationParser_view
 
 This project is the front-end for my graduate work. 
-It connects to the running Back-end, and displays data about articles, with the ability to view them.
+It connects to the running Back-end [@CitationParser](https://github.com/LowArtem/CitationParser.git), and displays data about articles, with the ability to view them.
 
 # React + TypeScript + Vite
 
